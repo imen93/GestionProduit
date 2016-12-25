@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta charset="utf-8" />
+	<title>Inscription</title>
+</h:head>
+<h:body>
+	<h:form id="formulaire">
+		<fieldset>
+			<legend>Ajout Client</legend>
+			<table>
+				<tr>
+					<td><h:outputLabel for="id">Nom <span>*</span>
+						</h:outputLabel></td>
+					<td><h:inputText id="id" value="#{ajoutClient.client.id}"
+							required="true" size="20" maxlength="60"
+							requiredMessage="Veuillez saisir votre id">
+						</h:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="nom">Nom <span>*</span>
+						</h:outputLabel></td>
+					<td><h:inputText id="nom" value="#{ajoutClient.client.nom}"
+							required="true" size="20" maxlength="60"
+							requiredMessage="Veuillez saisir votre nom">
+						</h:inputText></td>
+				</tr>
+			
+				<tr>
+					<td><h:outputLabel for="adresse">Adresse <span>*</span>
+						</h:outputLabel></td>
+					<td><h:inputText id="adresse"
+							value="#{ajoutClient.client.adresse}" required="true" size="20"
+							maxlength="60" requiredMessage="Veuillez saisir votre adresse">
+						</h:inputText></td>
+				</tr>
+
+			</table>
+			<h:messages globalOnly="true" infoClass="info" />
+
+			<!-- button -->
+			<h:commandButton value="ajouter" action="#{ajoutClient.ajout}"
+				styleClass="sansLabel">
+				<f:ajax execute="@form" render="@form" />
+			</h:commandButton>
+		</fieldset>
+	</h:form>
+</h:body>
+</html>

@@ -3,6 +3,7 @@ package tn.enis.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "CLIENT")
 public class Client {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "CLIENT_ID")
 	int id;
 	@Column(name = "NOM")
@@ -22,6 +23,11 @@ public class Client {
 	}
 
 	public Client(String nom, String adresse) {
+		this.nom = nom;
+		this.adresse = adresse;
+	}
+	public Client(int id,String nom, String adresse) {
+		this.id=id;
 		this.nom = nom;
 		this.adresse = adresse;
 	}
